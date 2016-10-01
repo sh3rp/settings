@@ -1,0 +1,8 @@
+dockerip() {
+    boot2docker ip 2> /dev/null
+}
+
+export DOCKER_HOST=tcp://$(dockerip):2376
+export DOCKER_CERT_PATH=/Users/shep/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
