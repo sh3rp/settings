@@ -1,5 +1,6 @@
-source ~/settings/unix/.bashprompt
-source ~/settings/unix/.osx-docker
+source $HOME/settings/unix/.bashprompt
+source $HOME/settings/unix/.osx-docker
+source $HOME/.credentials
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
