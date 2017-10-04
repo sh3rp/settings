@@ -13,3 +13,5 @@ export PATH=$PATH:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:$
 
 export ETCD_NAME=sh3rp
 export ETCD_DATA_DIR=/data/sh3rp.etcd
+export ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+export ETCDCTL_API=3
