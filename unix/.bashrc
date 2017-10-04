@@ -1,6 +1,10 @@
 source $HOME/settings/unix/.bashprompt
 source $HOME/settings/unix/.osx-docker
-source $HOME/.credentials
+
+if [ -e "$HOME/.credentials" ]
+then
+    source $HOME/.credentials
+fi
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin

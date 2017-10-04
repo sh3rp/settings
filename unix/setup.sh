@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # setup vi
-git clone https://github.com/joshdick/onedark.vim $HOME/.vim
-echo "syntax on\ncolorscheme onedark\n" > $HOME/.vimrc
+git clone https://github.com/Zabanaa/neuromancer.vim $HOME/.vim
+echo "syntax on\ncolorscheme neuromancer\n" > $HOME/.vimrc
 
 # setup omf
 
