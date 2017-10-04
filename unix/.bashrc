@@ -10,3 +10,6 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/go
 export PATH=$PATH:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:$GOROOT/bin
+
+export ETCD_NAME=sh3rp
+export ETCD_DATA_DIR=/data/sh3rp.etcd
