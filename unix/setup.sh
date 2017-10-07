@@ -14,11 +14,22 @@ git clone https://github.com/Zabanaa/neuromancer.vim $HOME/.vim_temp
 cp -R $HOME/.vim_temp/colors $HOME/.vim
 
 cat <<EOF >> $HOME/.vimrc
-call plug#begin('$HOME/.vim/plugged')
-Plug 'fatih/vim-go'
-Plug 'nsf/gocode'
+call plug#begin('/home/shep/.vim/plugged')
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
-colorscheme neuromancer
+set autowrite
+set t_Co=256
+set softtabstop=4
+set shiftwidth=4
+set background=dark
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+colorscheme PaperColor
 EOF
 
 rm -rf $HOME/.vim_temp
