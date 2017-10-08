@@ -6,6 +6,7 @@ rm -rf $HOME/.vim
 rm $HOME/.vimrc
 
 mkdir $HOME/.vim
+mkdir $HOME/.vim/plugged
 mkdir $HOME/.vim_temp
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
