@@ -1,5 +1,7 @@
 #!/bin/sh
 
+GO_VERSION=1.9
+
 # setup vi
 
 rm -rf $HOME/.vim
@@ -36,6 +38,13 @@ EOF
 rm -rf $HOME/.vim_temp
 
 # setup go
+
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:gophers/archive
+sudo apt -y update
+sudo apt install -y golang-${GO_VERSION} tmux
+
+sudo ln -s /usr/lib/go-${GO_VERSION} /usr/local/go
 
 mkdir -p $HOME/go/src
 mkdir -p $HOME/go/pkg
