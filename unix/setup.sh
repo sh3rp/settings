@@ -17,7 +17,7 @@ git clone https://github.com/Zabanaa/neuromancer.vim $HOME/.vim_temp
 cp -R $HOME/.vim_temp/colors $HOME/.vim
 
 cat <<EOF >> $HOME/.vimrc
-call plug#begin('/home/shep/.vim/plugged')
+call plug#begin('$HOME/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
