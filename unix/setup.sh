@@ -23,8 +23,7 @@ Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 set autowrite
 set t_Co=256
-set softtabstop=4
-set shiftwidth=4
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set background=dark
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -32,6 +31,7 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
+let g:go_fmt_command = "goimports"
 colorscheme PaperColor
 EOF
 
