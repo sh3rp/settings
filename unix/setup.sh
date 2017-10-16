@@ -43,6 +43,7 @@ sudo apt install -y software-properties-common
 sudo add-apt-repository -y ppa:gophers/archive
 sudo apt -y update
 sudo apt install -y golang-${GO_VERSION} tmux
+sudo apt upgrade -y vim
 
 sudo ln -s /usr/lib/go-${GO_VERSION} /usr/local/go
 
