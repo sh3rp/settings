@@ -1,4 +1,4 @@
-source $HOME/settings/unix/.bashprompt
+source $HOME/settings/unix/.bashprompt2
 source $HOME/settings/unix/.osx-docker
 
 if [ -e "$HOME/.credentials" ]
