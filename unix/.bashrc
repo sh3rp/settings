@@ -1,5 +1,5 @@
 source $HOME/settings/unix/git-prompt.sh
-source $HOME/settings/unix/.bashprompt2
+source $HOME/settings/unix/.bashprompt3
 source $HOME/settings/unix/.osx-docker
 
 if [ -e "$HOME/.credentials" ]
