@@ -1,3 +1,4 @@
+source $HOME/settings/unix/git-prompt.sh
 source $HOME/settings/unix/.bashprompt2
 source $HOME/settings/unix/.osx-docker
 
