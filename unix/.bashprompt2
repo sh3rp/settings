@@ -25,6 +25,7 @@ prompt_command () {
     local F_PURPLE="\e[38;5;141m"
     local F_LIGHTPURPLE="\e[38;5;128m"
     local F_LIGHTBLUE="\e[38;5;153m"
+    local F_LIGHTRED="\e[38;5;211m"
     local F_RED="\e[38;5;160m"
     local F_WHITE="\e[38;5;231m"
     local B_GRAY="\e[48;5;239m"
@@ -35,7 +36,7 @@ prompt_command () {
     # set the titlebar to the last 2 fields of pwd
     local TITLEBAR='\[\e]2;`pwdtail`\a'
     export PS1="\n\[${TITLEBAR}\]${F_CYAN}${B_GRAY}[ ${F_CYAN}\u${F_BLUE}@${F_CYAN}\
-\h${F_GREEN} (${LOAD}) ${F_PURPLE}${TIME} ${F_CYAN}] ${F_RED}$ERRPROMPT${F_LIGHTBLUE}\
+\h${F_GREEN} (${LOAD}) ${F_PURPLE}${TIME} ${F_CYAN}] ${F_LIGHTRED}$ERRPROMPT${F_LIGHTBLUE}\
 \w\n${B_PURPLE}${F_WHITE}${BRANCH}${DEFAULT}${B_BLACK}${F_GREEN} $ "
 }
 PROMPT_COMMAND=prompt_command
