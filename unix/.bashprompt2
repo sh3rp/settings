@@ -21,18 +21,22 @@ prompt_command () {
     local RED="\[\033[0;31m\]"
     local F_CYAN="\e[38;5;122m"
     local F_GREEN="\e[38;5;118m"
-    local F_BLUE="\e[38;5;105m"
+    local F_BLUE="\e[38;5;33m"
     local F_PURPLE="\e[38;5;141m"
+    local F_LIGHTPURPLE="\e[38;5;128m"
     local F_LIGHTBLUE="\e[38;5;153m"
-    local B_GRAY="\e[48;5;237m"
+    local F_RED="\e[38;5;160m"
+    local F_WHITE="\e[38;5;231m"
+    local B_GRAY="\e[48;5;239m"
     local B_BLACK="\e[48;5;0m"
+    local B_PURPLE="\e[48;5;128m"
     # return color to Terminal setting for text color
     local DEFAULT="\[\033[0;39m\]"
     # set the titlebar to the last 2 fields of pwd
     local TITLEBAR='\[\e]2;`pwdtail`\a'
-    export PS1="\n\[${TITLEBAR}\]${CYAN}[ ${B_GRAY}${F_CYAN}\u${F_BLUE}@${F_CYAN}\
-\h${F_GREEN} (${LOAD}) ${F_PURPLE}${TIME}${B_BLACK} ${CYAN}]${RED}$ERRPROMPT${F_LIGHTBLUE}\
-\w\n${GREEN}${BRANCH}${DEFAULT}$ "
+    export PS1="\n\[${TITLEBAR}\]${F_CYAN}${B_GRAY}[ ${F_CYAN}\u${F_BLUE}@${F_CYAN}\
+\h${F_GREEN} (${LOAD}) ${F_PURPLE}${TIME} ${F_CYAN}] ${F_RED}$ERRPROMPT${F_LIGHTBLUE}\
+\w\n${B_PURPLE}${F_WHITE}${BRANCH}${DEFAULT}${B_BLACK}${F_GREEN} $ "
 }
 PROMPT_COMMAND=prompt_command
 
