@@ -48,6 +48,8 @@ mkdir -p $HOME/go/bin
 
 # add go utilities
 
+go get -u github.com/golang/dep/cmd/dep
+
 go get -u github.com/sh3rp/s3
 go get -u github.com/sh3rp/ears
 go get -u github.com/sh3rp/tcping
