@@ -17,3 +17,5 @@ export ETCD_DATA_DIR=/data/sh3rp.etcd
 export ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
 export ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
 export ETCDCTL_API=3
+
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
