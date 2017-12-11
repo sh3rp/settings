@@ -12,17 +12,17 @@ prompt_cmd() {
         BRANCH="\$(__git_ps1 ' %s ')"
     fi
 
-    local F_CYAN="\e[38;5;122m"                                                                                                                                           
-    local B_B1="\e[48;5;21m"
-    local B_B2="\e[48;5;56m"
-    local B_B3="\e[48;5;91m"
-    local B_B4="\e[48;5;53m"
-    local B_B5="\e[48;5;17m"
-    local B_B6="\e[48;5;16m"
+    local F_CYAN="\[\e[38;5;122m\]"                                                                                             
+    local B_B1="\[\e[48;5;21m\]"
+    local B_B2="\[\e[48;5;56m\]"
+    local B_B3="\[\e[48;5;91m\]"
+    local B_B4="\[\e[48;5;53m\]"
+    local B_B5="\[\e[48;5;17m\]"
+    local B_B6="\[\e[48;5;16m\]"
 
-    local F_W="\e[38;5;230m"
+    local F_W="\[\e[38;5;230m\]"
 
-    local B_RESET="\e[48;5;0m"
+    local B_RESET="\[\e[48;5;0m\]"
     export PS1="\n${B_B1}${F_W}\u${F_CYAN}@${F_W}\h |${B_B2} ${LOAD} ${B_B3}| ${TIME} ${B_B4}| ${DIR}${B_RESET}\n\
 ${B_B1}${BRANCH}${B_B2}=>${B_RESET} "
 }
