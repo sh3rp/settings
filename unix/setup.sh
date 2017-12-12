@@ -28,6 +28,10 @@ rm -rf .temp_airlines
 
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
+# setup deoplete
+
+pip3 install neovim
+
 ln -s $HOME/settings/unix/.vimrc $HOME/.vimrc
 
 # setup go
