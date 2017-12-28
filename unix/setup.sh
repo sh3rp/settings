@@ -2,9 +2,18 @@
 
 GO_VERSION=1.9.2
 
+# setup go
+
+sudo add-apt-repository -y ppa:gophers/archive
+sudo apt -y update
+sudo apt install -y software-properties-common curl tmux golang-${GO_VERSION} python3-pip python-pip
+sudo apt upgrade -y vim
+
 # setup vi
 
 rm -rf $HOME/.vim
+rm -rf $HOME/.vim_temp
+rm $HOME/.vimrc
 
 mkdir $HOME/.vim
 mkdir $HOME/.vim/plugged
@@ -33,14 +42,6 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 pip3 install neovim
 
 ln -s $HOME/settings/unix/.vimrc $HOME/.vimrc
-
-# setup go
-
-sudo apt install -y software-properties-common
-sudo add-apt-repository -y ppa:gophers/archive
-sudo apt -y update
-sudo apt install -y golang-${GO_VERSION} tmux
-sudo apt upgrade -y vim
 
 sudo ln -s /usr/lib/go-${GO_VERSION} /usr/local/go
 

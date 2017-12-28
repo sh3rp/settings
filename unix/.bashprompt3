@@ -22,7 +22,7 @@ prompt_cmd() {
 
     local F_W="\[\e[38;5;230m\]"
 
-    local B_RESET="\[\e[48;5;0m\]"
+    local B_RESET="\[\e[48;5;0m\]\[\e[32;0m\]"
     export PS1="\n${B_B1}${F_W}\u${F_CYAN}@${F_W}\h |${B_B2} ${LOAD} ${B_B3}| ${TIME} ${B_B4}| ${DIR}${B_RESET}\n\
 ${B_B1}${BRANCH}${B_B2}=>${B_RESET} "
 }
