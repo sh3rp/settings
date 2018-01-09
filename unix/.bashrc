@@ -1,4 +1,5 @@
-source $HOME/settings/unix/.bashprompt
+source $HOME/settings/unix/git-prompt.sh
+source $HOME/settings/unix/.bashprompt3
 source $HOME/settings/unix/.osx-docker
 
 if [ -e "$HOME/.credentials" ]
@@ -16,3 +17,5 @@ export ETCD_DATA_DIR=/data/sh3rp.etcd
 export ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
 export ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
 export ETCDCTL_API=3
+
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
