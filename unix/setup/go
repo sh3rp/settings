@@ -1,0 +1,22 @@
+#!/bin/bash
+
+source env
+
+GO_VERSION=1.9.2
+
+curl https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz -o /tmp/go.tar.gz
+
+sudo rm -rf /usr/local/go
+
+cd /usr/local
+sudo tar xfz /tmp/go.tar.gz
+
+rm -rf /tmp/go.tar.gz
+
+go get -u github.com/golang/dep/cmd/dep
+
+go get -u github.com/sh3rp/s3
+go get -u github.com/sh3rp/ears
+go get -u github.com/sh3rp/tcping
+
+sudo setcap cap_net_raw+ep $GOPATH/bin/tcping

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+GOPATH=$HOME/go
+GOROOT=/usr/local/go
+GOBIN=$HOME/go/bin
+
+PATH=$PATH:$GOROOT/bin:$GOPATH/bin

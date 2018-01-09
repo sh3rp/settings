@@ -1,9 +1,9 @@
 #!/bin/bash
 
+source env
+
 sudo add-apt-repository ppa:jonathonf/vim
-
 sudo apt update
-
 sudo apt -y install python3 python3-pip vim
 
 pip3 install neovim
@@ -19,16 +19,22 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 cat <<EOF >> $HOME/.vimrc
 call plug#begin('$HOME/.vim/plugged')
+
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 if has('nvim')
    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
    Plug 'Shougo/deoplete.nvim'
-   Plug 'roxma/nvim-yarp'
+   Plug 'roxma/nvim-yarp
    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
+
 set autowrite
 set t_Co=256
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -41,6 +47,7 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_fmt_command = "goimports"
 let g:deoplete#enable_at_startup = 1
+
 colorscheme PaperColor
 EOF
 
