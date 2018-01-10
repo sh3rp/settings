@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source env
+source $HOME/settings/unix/setup/env
 
 GO_VERSION=1.9.2
 
