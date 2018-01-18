@@ -9,7 +9,7 @@ prompt_cmd() {
     local TIME=`fmt_time`
     local DIR=`pwdtail`
     if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
-        BRANCH="\$(__git_ps1 ' %s ')"
+        BRANCH="\$(__git_ps1 '┤ %s ├')"
     fi
 
     local F_CYAN="\[\e[38;5;122m\]"                                                                                             
@@ -20,11 +20,19 @@ prompt_cmd() {
     local B_B5="\[\e[48;5;17m\]"
     local B_B6="\[\e[48;5;16m\]"
 
-    local F_W="\[\e[38;5;230m\]"
+    local B_CORNFLOWERBLUE="\[\e[48;5;69m\]"
+
+    local F_STEELBLUE="\[\e[38;5;75m\]"
+    local F_WHITE="\[\e[38;5;230m\]"
+    local F_BLUEVIOLET="\[\e[38;5;57m\]"
+    local F_SKYBLUE="\[\e[38;5;117m\]"
+    local F_LIGHTCYAN="\[\e[38;5;152m\]"
 
     local B_RESET="\[\e[48;5;0m\]\[\e[32;0m\]"
-    export PS1="\n${B_B1}${F_W}\u${F_CYAN}@${F_W}\h |${B_B2} ${LOAD} ${B_B3}| ${TIME} ${B_B4}| ${DIR}${B_RESET}\n\
-${B_B1}${BRANCH}${B_B2}=>${B_RESET} "
+#    export PS1="\n${B_B1}${F_W}\u${F_CYAN}@${F_W}\h |${B_B2} ${LOAD} ${B_B3}| ${TIME} ${B_B4}| ${DIR}${B_RESET}\n\
+#${B_B1}${BRANCH}${B_B2}=>${B_RESET} "
+    export PS1="\n${F_CYAN}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${F_CYAN}├──┤${F_WHITE}${B_B1}${DIR}${B_RESET}${F_CYAN}├─┄┈\n\
+└─${F_CYAN}${B_B2}${BRANCH}${B_RESET}${F_CYAN}──▻${B_RESET} "
 }
 
 fmt_time () { #format time just the way I likes it
