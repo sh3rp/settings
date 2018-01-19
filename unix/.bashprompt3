@@ -1,8 +1,8 @@
 #!/bin/bash
-#export GIT_PS1_SHOWDIRTYSTATE=true
-#export GIT_PS1_SHOWCOLORHINTS=true
-#export GIT_PS1_SHOWUPSTREAM=true
-#export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWUPSTREAM=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 prompt_cmd() {
     local F_CYAN="\[\e[38;5;122m\]"                                                                                             
@@ -35,7 +35,7 @@ prompt_cmd() {
     local TIME=`fmt_time`
     local DIR=`pwdtail`
     if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
-        BRANCH="\$(__git_ps1 '┤${B_B2} %s ${B_RESET}${F_BOX}├')"
+        BRANCH="\$(__git_ps1 '┤${B_B2}%s${B_RESET}${F_BOX}├')"
     fi
 
     export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${F_BOX}├──┤${F_TIME}${TIME}${B_RESET}${F_BOX}├──┤${F_DIR}${DIR}${B_RESET}${F_BOX}├─╌╶\n\
