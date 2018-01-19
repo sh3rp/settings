@@ -25,9 +25,18 @@ prompt_cmd() {
     local F_BLUEVIOLET="\[\e[38;5;57m\]"
     local F_SKYBLUE="\[\e[38;5;153m\]"
     local F_LIGHTCYAN="\[\e[38;5;165m\]"
-    local F_BOX="\[\e[38;5;195m\]"
+
+    local F_USER="\[\e[38;2;238;232;213m\]"
+    local F_AT="\[\e[38;2;42;161;152m\]"
+    local F_TIME="\[\e[38;2;108;113;196m\]"
     
-    local B_FIELD="\[\e[48;5;17m\]"
+    local F_BOX_1="\[\e[38;2;42;161;152m\]"
+    local F_BOX_2="\[\e[38;2;38;139;210m\]"
+    local F_BOX_3="\[\e[38;2;108;113;196m\]"
+    local F_BOX_4="\[\e[38;2;211;54;130m\]"
+
+    local B_FIELD="\[\e[48;2;7;54;66m\]"
+    local B_GIT_FIELD="\[\e[48;2;88;110;117m\]"
 
     local B_RESET="\[\e[48;5;0m\]\[\e[32;0m\]"
 #    export PS1="\n${B_B1}${F_W}\u${F_CYAN}@${F_W}\h |${B_B2} ${LOAD} ${B_B3}| ${TIME} ${B_B4}| ${DIR}${B_RESET}\n\
@@ -37,11 +46,11 @@ prompt_cmd() {
     local TIME=`fmt_time`
     local DIR=`pwdtail`
     if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
-        BRANCH="\$(__git_ps1 '┤${B_B2}%s${B_RESET}${F_BOX}├')"
+        BRANCH="\$(__git_ps1 '┤${F_WHITE}${B_GIT_FIELD}%s${B_RESET}${F_BOX_2}├')"
     fi
 
-    export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${B_RESET}${F_BOX}├──┤${F_TIME}${TIME}${B_RESET}${F_BOX}├──┤${F_DIR}${DIR}${B_RESET}${F_BOX}├─╌╶\n\
-${F_BOX}└─${BRANCH}──▻${B_RESET} "
+    export PS1="\n${F_BOX_1}┌─┤${B_FIELD}${F_USER}\u${F_AT}@${F_USER}\h${B_RESET}${F_BOX_2}├──┤${B_FIELD}${F_USER}${TIME}${B_RESET}${F_BOX_3}├──┤${F_USER}${B_FIELD}${DIR}${B_RESET}${F_BOX_4}├─╌╶\n\
+${F_BOX_1}└─${BRANCH}──▻${B_RESET} "
 }
 
 fmt_time () { #format time just the way I likes it
