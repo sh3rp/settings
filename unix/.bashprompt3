@@ -20,12 +20,14 @@ prompt_cmd() {
 
     local F_DIR="\[\e[38;5;147m\]"
 
-    local F_STEELBLUE="\[\e[38;5;75m\]"
+    local F_STEELBLUE="\[\e[38;5;177m\]"
     local F_WHITE="\[\e[38;5;230m\]"
     local F_BLUEVIOLET="\[\e[38;5;57m\]"
-    local F_SKYBLUE="\[\e[38;5;189m\]"
+    local F_SKYBLUE="\[\e[38;5;153m\]"
     local F_LIGHTCYAN="\[\e[38;5;165m\]"
     local F_BOX="\[\e[38;5;195m\]"
+    
+    local B_FIELD="\[\e[48;5;17m\]"
 
     local B_RESET="\[\e[48;5;0m\]\[\e[32;0m\]"
 #    export PS1="\n${B_B1}${F_W}\u${F_CYAN}@${F_W}\h |${B_B2} ${LOAD} ${B_B3}| ${TIME} ${B_B4}| ${DIR}${B_RESET}\n\
@@ -38,7 +40,7 @@ prompt_cmd() {
         BRANCH="\$(__git_ps1 '┤${B_B2}%s${B_RESET}${F_BOX}├')"
     fi
 
-    export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${F_BOX}├──┤${F_TIME}${TIME}${B_RESET}${F_BOX}├──┤${F_DIR}${DIR}${B_RESET}${F_BOX}├─╌╶\n\
+    export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${B_RESET}${F_BOX}├──┤${F_TIME}${TIME}${B_RESET}${F_BOX}├──┤${F_DIR}${DIR}${B_RESET}${F_BOX}├─╌╶\n\
 ${F_BOX}└─${BRANCH}──▻${B_RESET} "
 }
 
