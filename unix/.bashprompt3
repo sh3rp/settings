@@ -16,15 +16,15 @@ prompt_cmd() {
     local B_CORNFLOWERBLUE="\[\e[48;5;69m\]"
 
     local B_TIME="\[\e[48;5;19m\]"
-    local F_TIME="\[\e[38;5;255m\]"
+    local F_TIME="\[\e[38;5;153m\]"
 
     local F_DIR="\[\e[38;5;147m\]"
 
     local F_STEELBLUE="\[\e[38;5;75m\]"
     local F_WHITE="\[\e[38;5;230m\]"
     local F_BLUEVIOLET="\[\e[38;5;57m\]"
-    local F_SKYBLUE="\[\e[38;5;123m\]"
-    local F_LIGHTCYAN="\[\e[38;5;195m\]"
+    local F_SKYBLUE="\[\e[38;5;189m\]"
+    local F_LIGHTCYAN="\[\e[38;5;165m\]"
     local F_BOX="\[\e[38;5;195m\]"
 
     local B_RESET="\[\e[48;5;0m\]\[\e[32;0m\]"
@@ -38,7 +38,7 @@ prompt_cmd() {
         BRANCH="\$(__git_ps1 '┤${B_B2} %s ${B_RESET}${F_BOX}├')"
     fi
 
-    export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${F_BOX}├──┤${F_TIME}${B_TIME}${TIME}${B_RESET}${F_BOX}├──┤${F_DIR}${DIR}${B_RESET}${F_BOX}├─╌╶\n\
+    export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${F_BOX}├──┤${F_TIME}${TIME}${B_RESET}${F_BOX}├──┤${F_DIR}${DIR}${B_RESET}${F_BOX}├─╌╶\n\
 ${F_BOX}└─${BRANCH}──▻${B_RESET} "
 }
 
