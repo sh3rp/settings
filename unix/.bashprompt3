@@ -5,13 +5,6 @@
 #export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 prompt_cmd() {
-    local LOAD=`uptime | awk '{print $11}' | cut -d, -f1`
-    local TIME=`fmt_time`
-    local DIR=`pwdtail`
-    if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
-        BRANCH="\$(__git_ps1 '┤ %s ├')"
-    fi
-
     local F_CYAN="\[\e[38;5;122m\]"                                                                                             
     local B_B1="\[\e[48;5;21m\]"
     local B_B2="\[\e[48;5;56m\]"
@@ -21,6 +14,11 @@ prompt_cmd() {
     local B_B6="\[\e[48;5;16m\]"
 
     local B_CORNFLOWERBLUE="\[\e[48;5;69m\]"
+
+    local B_TIME="\[\e[48;5;19m\]"
+    local F_TIME="\[\e[38;5;255m\]"
+
+    local F_DIR="\[\e[38;5;147m\]"
 
     local F_STEELBLUE="\[\e[38;5;75m\]"
     local F_WHITE="\[\e[38;5;230m\]"
@@ -32,8 +30,16 @@ prompt_cmd() {
     local B_RESET="\[\e[48;5;0m\]\[\e[32;0m\]"
 #    export PS1="\n${B_B1}${F_W}\u${F_CYAN}@${F_W}\h |${B_B2} ${LOAD} ${B_B3}| ${TIME} ${B_B4}| ${DIR}${B_RESET}\n\
 #${B_B1}${BRANCH}${B_B2}=>${B_RESET} "
-    export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${F_BOX}├──┤${F_WHITE}${B_B1}${DIR}${B_RESET}${F_BOX}├─┄┈\n\
-${F_BOX}└─${B_B2}${BRANCH}${B_RESET}${F_BOX}──▻${B_RESET} "
+
+    local LOAD=`uptime | awk '{print $11}' | cut -d, -f1`
+    local TIME=`fmt_time`
+    local DIR=`pwdtail`
+    if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
+        BRANCH="\$(__git_ps1 '┤${B_B2} %s ${B_RESET}${F_BOX}├')"
+    fi
+
+    export PS1="\n${F_BOX}┌─┤${F_SKYBLUE}\u${F_STEELBLUE}@${F_SKYBLUE}\h${F_BOX}├──┤${F_TIME}${B_TIME}${TIME}${B_RESET}${F_BOX}├──┤${F_DIR}${DIR}${B_RESET}${F_BOX}├─╌╶\n\
+${F_BOX}└─${BRANCH}──▻${B_RESET} "
 }
 
 fmt_time () { #format time just the way I likes it
