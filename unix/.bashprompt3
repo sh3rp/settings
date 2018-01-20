@@ -49,7 +49,7 @@ prompt_cmd() {
         BRANCH="\$(__git_ps1 '┤${F_WHITE}${B_GIT_FIELD}%s${B_RESET}${F_BOX_2}├')"
     fi
 
-    export PS1="\n${F_BOX_1}┌─┤${B_FIELD}${F_USER}\u${F_AT}@${F_USER}\h${B_RESET}${F_BOX_2}├──┤${B_FIELD}${F_USER}${TIME}${B_RESET}${F_BOX_3}├──┤${F_USER}${B_FIELD}${DIR}${B_RESET}${F_BOX_4}├─╌╶\n\
+    export PS1="\n${F_BOX_1}┌─┤${B_FIELD}${F_USER}\u${F_AT}@${F_USER}\h${B_RESET}${F_BOX_2}├──┤${B_FIELD}${F_USER}${TIME}${B_RESET}${F_BOX_3}├──┤${F_USER}${B_FIELD}${DIR}${B_RESET}${F_BOX_4}├──────────╶╶\n\
 ${F_BOX_1}└─${BRANCH}──▻${B_RESET} "
 }
 
