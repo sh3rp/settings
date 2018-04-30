@@ -59,4 +59,6 @@ function install_vi() {
     make && sudo make install
 
     sudo ln -s /usr/local/bin/vim /usr/bin/vi
+
+    install_vi_plugins
 }
