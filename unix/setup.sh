@@ -50,5 +50,6 @@ sudo setcap cap_net_raw+ep $GOPATH/bin/tcping
 
 git config --global user.email "s@kndl.org"
 git config --global user.name "Shepherd Kendall"
+git config --global credential.helper cache
 
 touch $HOME/.credentials
