@@ -1,56 +1,62 @@
 #!/bin/bash
 
-source $HOME/settings/unix/setup/env
+function install_vi_plugins() {
+    # Pathogen
+    mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    # Plug
+    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    # Airlines
+    git clone https://github.com/vim-airline/vim-airline-themes .temp_airlines
+    cp -R .temp_airlines/autoload $HOME/.vim
+    rm -rf .temp_airlines
+    # Nerdtree
+    git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
-sudo add-apt-repository ppa:jonathonf/vim
-sudo apt update
-sudo apt -y install python3 python3-pip vim
+    ln -s $HOME/settings/unix/.vimrc $HOME/.vimrc
+}
 
-pip3 install neovim
+function install_vi() {
+    sudo apt -y remove --purge vim vim-runtime vim-gnome vim-tiny vim-gui-common
+     
+    sudo apt -y install liblua5.1-dev luajit libluajit-5.1 python-dev ruby-dev libperl-dev libncurses5-dev libatk1.0-dev libx11-dev libxpm-dev libxt-dev
 
-sudo rm -rf $HOME/.vim
-sudo rm $HOME/.vimrc
+    #Optional: so vim can be uninstalled again via `dpkg -r vim`
+    sudo apt -y install checkinstall
 
-mkdir $HOME/.vim
-mkdir $HOME/.vim/plugged
-mkdir $HOME/.vim_temp
+    sudo rm -rf /usr/local/share/vim /usr/bin/vim
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    cd ~
+    git clone https://github.com/vim/vim
+    cd vim
+    git pull && git fetch
 
-cat <<EOF >> $HOME/.vimrc
-call plug#begin('$HOME/.vim/plugged')
+    #In case Vim was already installed
+    cd src
+    make distclean
+    cd ..
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-if has('nvim')
-   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-   Plug 'Shougo/deoplete.nvim'
-   Plug 'roxma/nvim-yarp'
-   Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+    ./configure \
+	--enable-multibyte \
+	--enable-perlinterp=dynamic \
+	--enable-rubyinterp=dynamic \
+	--with-ruby-command=/usr/local/bin/ruby \
+	--enable-pythoninterp=dynamic \
+	--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+	--enable-python3interp \
+	--with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+	--enable-luainterp \
+	--with-luajit \
+	--enable-cscope \
+	--enable-gui=auto \
+	--with-features=huge \
+	--with-x \
+	--enable-fontset \
+	--enable-largefile \
+	--disable-netbeans \
+	--with-compiledby="Shepherd Kendall" \
+	--enable-fail-if-missing
 
-call plug#end()
+    make && sudo make install
 
-set autowrite
-set t_Co=256
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set background=dark
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
-let g:go_fmt_command = "goimports"
-let g:deoplete#enable_at_startup = 1
-
-colorscheme PaperColor
-EOF
-
-rm -rf $HOME/.vim_temp
-
-
+    sudo ln -s /usr/local/bin/vim /usr/bin/vi
+}

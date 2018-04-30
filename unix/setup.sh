@@ -1,14 +1,13 @@
-#!/bin/sh
+#!/bin/bash
+
+source $(pwd)/setup/vi
 
 GO_VERSION=1.10
-
-# setup go
 
 sudo add-apt-repository -y ppa:gophers/archive
 sudo apt -y update
 sudo apt install -y software-properties-common curl tmux golang-${GO_VERSION} python3-pip python-pip
 pip3 install --upgrade --user pip
-sudo apt upgrade -y vim
 
 # setup vi
 
@@ -20,29 +19,10 @@ mkdir $HOME/.vim
 mkdir $HOME/.vim/plugged
 mkdir $HOME/.vim_temp
 
-# setup Plug
+install_vi
+install_vi_plugins
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-# setup Pathogen
-
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# setup Airlines
-
-git clone https://github.com/vim-airline/vim-airline-themes .temp_airlines
-cp -R .temp_airlines/autoload $HOME/.vim
-rm -rf .temp_airlines
-
-# setup nerdtree
-
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-
-# setup deoplete
-
-pip3 install neovim
-
-ln -s $HOME/settings/unix/.vimrc $HOME/.vimrc
+# setup go
 
 if [ -e "/usr/local/go" ]; then
     sudo rm /usr/local/go
@@ -65,6 +45,8 @@ go get -u github.com/sh3rp/ears
 go get -u github.com/sh3rp/tcping
 
 sudo setcap cap_net_raw+ep $GOPATH/bin/tcping
+
+# setup identity
 
 git config --global user.email "s@kndl.org"
 git config --global user.name "Shepherd Kendall"
