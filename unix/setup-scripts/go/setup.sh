@@ -21,6 +21,8 @@ function install_go() {
     go get -u github.com/sh3rp/s3
     go get -u github.com/sh3rp/ears
     go get -u github.com/sh3rp/tcping
+    go get -u github.com/sh3rp/encdec/cmd/enc
+    go get -u github.com/sh3rp/encdec/cmd/dec
 
     sudo setcap cap_net_raw+ep $GOPATH/bin/tcping
 }
