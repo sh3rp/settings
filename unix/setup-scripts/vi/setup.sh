@@ -18,7 +18,7 @@ function install_vi_plugins() {
 function install_vi() {
     sudo apt -y remove --purge vim vim-runtime vim-gnome vim-tiny vim-gui-common
      
-    sudo apt -y install liblua5.1-dev luajit libluajit-5.1 python-dev ruby-dev libperl-dev libncurses5-dev libatk1.0-dev libx11-dev libxpm-dev libxt-dev
+    sudo apt -y install liblua5.3-dev python-dev ruby-dev libperl-dev libncurses5-dev libatk1.0-dev libx11-dev libxpm-dev libxt-dev
 
     #Optional: so vim can be uninstalled again via `dpkg -r vim`
     sudo apt -y install checkinstall
