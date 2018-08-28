@@ -1,15 +1,13 @@
 #!/bin/bash
 
-GO_VERSION=1.10
+GO_VERSION=1.11
 
 function install_go() {
     sudo rm -rf /usr/local/go
 
-    sudo add-apt-repository ppa:gophers/archive
-    sudo apt -y update
-    sudo apt -y install golang-${GO_VERSION}
-
-    sudo ln -s /usr/lib/go-${GO_VERSION} /usr/local/go
+    wget -O /tmp/go-${GO_VERSION}.tar.gz https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz
+    cd /usr/local
+    sudo tar xvfz /tmp/go-${GO_VERSION}.tar.gz
 
     export GOROOT=/usr/local/go
     export GOPATH=$HOME/go
