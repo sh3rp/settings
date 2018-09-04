@@ -1,7 +1,12 @@
 execute pathogen#infect()
 call plug#begin('$HOME/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+<<<<<<< Updated upstream
 Plug 'tomasiser/vim-code-dark'
+=======
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'Badacadabra/vim-archery'
+>>>>>>> Stashed changes
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
@@ -21,4 +26,8 @@ let g:go_fmt_command = "goimports"
 let g:airline_theme = 'codedark'
 let g:deoplete#enable_at_startup = 1
 map <C-n> :NERDTreeToggle<CR>
+<<<<<<< Updated upstream
 colorscheme codedark
+=======
+colorscheme archery
+>>>>>>> Stashed changes

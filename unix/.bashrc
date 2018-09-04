@@ -8,7 +8,7 @@ then
 fi
 
 export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
+#export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/go
 export PATH=$PATH:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:$GOROOT/bin
 
@@ -19,3 +19,7 @@ export ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
 export ETCDCTL_API=3
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
+
+function mem() {
+    ps auxww | grep "$1" | awk '{print $4}' | paste -sd+ - | bc
+}
