@@ -1,4 +1,3 @@
-execute pathogen#infect()
 call plug#begin('$HOME/.vim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tomasiser/vim-code-dark'

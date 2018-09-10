@@ -12,18 +12,20 @@ function install_vi_plugins() {
     # Nerdtree
     git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
+    rm -rf $HOME/.vimrc
+
     ln -s $HOME/settings/unix/.vimrc $HOME/.vimrc
 }
 
 function install_vi() {
     sudo apt -y remove --purge vim vim-runtime vim-gnome vim-tiny vim-gui-common
      
-    sudo apt -y install liblua5.3-dev python-dev ruby-dev libperl-dev libncurses5-dev libatk1.0-dev libx11-dev libxpm-dev libxt-dev
+    sudo apt -y install liblua5.3-dev python-dev ruby-dev libperl-dev libncurses5-dev libatk1.0-dev libx11-dev libxpm-dev libxt-dev curl
 
     #Optional: so vim can be uninstalled again via `dpkg -r vim`
     sudo apt -y install checkinstall
 
-    sudo rm -rf /usr/local/share/vim /usr/bin/vim
+    sudo rm -rf /usr/local/share/vim /usr/bin/vim /usr/bin/vi
 
     cd ~
     git clone https://github.com/vim/vim
