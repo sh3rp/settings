@@ -23,3 +23,20 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
 function mem() {
     ps auxww | grep "$1" | awk '{print $4}' | paste -sd+ - | bc
 }
+
+function usego() {
+    sudo rm /usr/local/go
+
+    VERSION=$1
+    OS=$(uname -s | tr A-Z a-z)
+
+    if [ ! -d "/usr/local/go${VERSION}" ]; then
+        wget -O /tmp/go.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-amd64.tar.gz
+        cd /usr/local
+        sudo tar xvfz /tmp/go.tar.gz
+        sudo mv /usr/local/go /usr/local/go${VERSION}
+        rm /tmp/go.tar.gz
+    fi
+
+    sudo ln -s /usr/local/go${VERSION} /usr/local/go
+}
