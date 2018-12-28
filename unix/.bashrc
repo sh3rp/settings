@@ -32,10 +32,12 @@ function usego() {
 
     if [ ! -d "/usr/local/go${VERSION}" ]; then
         wget -O /tmp/go.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-amd64.tar.gz
+	CWD=$(pwd)
         cd /usr/local
         sudo tar xvfz /tmp/go.tar.gz
         sudo mv /usr/local/go /usr/local/go${VERSION}
         rm /tmp/go.tar.gz
+	cd $CWD
     fi
 
     sudo ln -s /usr/local/go${VERSION} /usr/local/go
