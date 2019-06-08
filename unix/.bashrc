@@ -25,7 +25,9 @@ function mem() {
 }
 
 function usego() {
-    sudo rm /usr/local/go
+    if [ -d "/usr/local/go" ]; then
+        sudo rm /usr/local/go
+    fi
 
     VERSION=$1
     OS=$(uname -s | tr A-Z a-z)
