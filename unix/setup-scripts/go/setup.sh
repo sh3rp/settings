@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GO_VERSION=1.11
+GO_VERSION=1.15.1
 PROTO_VERSION=3.6.1
 
 function install_go() {
@@ -44,6 +44,7 @@ function install_go() {
     go get -u github.com/sh3rp/tcping/cmd/tcping
     go get -u github.com/sh3rp/encdec/cmd/enc
     go get -u github.com/sh3rp/encdec/cmd/dec
+    go get -u github.com/sh3rp/stringen
     go get -u github.com/itchyny/gojq/cmd/gojq
 
     sudo setcap cap_net_raw+ep $GOPATH/bin/tcping
