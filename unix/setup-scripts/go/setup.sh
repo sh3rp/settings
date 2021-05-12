@@ -45,6 +45,7 @@ function install_go() {
     go get -u github.com/sh3rp/encdec/cmd/enc
     go get -u github.com/sh3rp/encdec/cmd/dec
     go get -u github.com/sh3rp/stringen
+		go get -u github.com/sh3rp/lpc
     go get -u github.com/itchyny/gojq/cmd/gojq
 
     sudo setcap cap_net_raw+ep $GOPATH/bin/tcping

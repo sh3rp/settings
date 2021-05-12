@@ -20,6 +20,8 @@ export ETCDCTL_API=3
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
 
+shopt -s direxpand
+
 function mem() {
     ps auxww | grep "$1" | awk '{print $4}' | paste -sd+ - | bc
 }
