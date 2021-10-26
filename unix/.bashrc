@@ -20,7 +20,7 @@ export ETCDCTL_API=3
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
 
-shopt -s direxpand
+#shopt -s direxpand
 
 alias tfi="terraform init"
 alias tfv="terraform validate"
@@ -41,15 +41,21 @@ function usego() {
 
     if [ ! -d "/usr/local/go${VERSION}" ]; then
         wget -O /tmp/go.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-amd64.tar.gz
-	CWD=$(pwd)
+	      CWD=$(pwd)
         cd /usr/local
         sudo tar xvfz /tmp/go.tar.gz
         sudo mv /usr/local/go /usr/local/go${VERSION}
         rm /tmp/go.tar.gz
-	cd $CWD
+	      cd $CWD
     fi
 
     sudo ln -s /usr/local/go${VERSION} /usr/local/go
+
+		if [ -f "/usr/local/bin/go" ]; then
+			rm -f /usr/local/bin/go
+    fi
+
+    sudo ln -s /usr/local/go${VERSION}/bin/go /usr/local/bin/go
 }
 
 function gitprofile() {
