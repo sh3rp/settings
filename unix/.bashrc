@@ -44,3 +44,9 @@ function usego() {
 
     sudo ln -s /usr/local/go${VERSION} /usr/local/go
 }
+
+function gitprofile() {
+    rm -f $HOME/.gitconfig
+    ln -s $HOME/.gitconf/$1 $HOME/.gitconfig
+    git config -l
+}
