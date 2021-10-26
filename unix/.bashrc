@@ -20,6 +20,13 @@ export ETCDCTL_API=3
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
 
+shopt -s direxpand
+
+alias tfi="terraform init"
+alias tfv="terraform validate"
+alias tfa="terraform apply -auto-approve"
+alias tfd="terraform destroy"
+
 function mem() {
     ps auxww | grep "$1" | awk '{print $4}' | paste -sd+ - | bc
 }
