@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function start() {
+	docker run -d -p 27017:27017 --name mongodb -e MONGODB_INIT_ROOT_USERNAME=root -e MONGODB_INIT_ROOT_PASSWORD=password mongo:latest
+}
+
+function stop() {
+  docker stop $(docker ps --format "{{.ID}}" -f name=mongodb)
+  docker rm $(docker ps --format "{{.ID}}" -f name=mongodb)
+}
+
+function sh() {
+	docker exec -it mongodb /bin/bash
+}
+
+$1
