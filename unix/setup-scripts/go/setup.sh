@@ -1,7 +1,7 @@
 #!/bin/bash
 
-GO_VERSION=1.15.1
-PROTO_VERSION=3.6.1
+GO_VERSION=1.17.6
+PROTO_VERSION=3.19.3
 
 function install_go() {
     sudo rm -rf /usr/local/go
