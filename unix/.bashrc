@@ -1,6 +1,6 @@
 #source $HOME/settings/unix/git-prompt.sh
 #source $HOME/settings/unix/.bashprompt3
-export PS1="\e[0;37m\u\e[1;30m@\e[0;37m\h \e[1;30m\W \e[1;37m> "
+export PS1="\[\e[0;37m\]\u\[\e[1;30m\]@\[\e[0;37m\]\h \[\e[1;30m\]\W \[\e[1;37m\]> "
 source $HOME/settings/unix/.osx-docker
 
 if [ -e "$HOME/.credentials" ]
