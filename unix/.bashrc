@@ -60,7 +60,9 @@ function usego() {
 }
 
 function gitprofile() {
-    rm -f $HOME/.gitconfig
-    ln -s $HOME/.gitconf/$1 $HOME/.gitconfig
+    if [[ "$1" ]]; then
+       rm -f $HOME/.gitconfig
+       ln -s $HOME/.gitconf/$1 $HOME/.gitconfig
+    fi
     git config -l
 }
