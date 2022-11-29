@@ -8,6 +8,7 @@ function install_rust() {
     install_bat
     install_fd
     install_hexyl
+    install_hurl
 }
 
 function install_bat() {
@@ -39,6 +40,17 @@ function install_hexyl() {
     cd hexyl
     cargo build
     sudo cp target/debug/hexyl /usr/local/bin
+    cd ../..
+    rm -rf tmp
+}
+
+function install_fd() {
+    mkdir tmp
+    cd tmp
+    git clone https://github.com/Orange-OpenSource/hurl
+    cd hurl 
+    cargo build 
+    sudo cp target/debug/hurl /usr/local/bin
     cd ../..
     rm -rf tmp
 }
