@@ -26,6 +26,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
 alias cat=$(which bat)
 alias find=$(which fd)
 alias hat=$(which hexyl)
+alias grep=$(which rg)
 
 alias tfi="terraform init"
 alias tfv="terraform validate"
