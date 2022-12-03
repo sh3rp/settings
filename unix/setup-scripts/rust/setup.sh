@@ -44,7 +44,7 @@ function install_hexyl() {
     rm -rf tmp
 }
 
-function install_fd() {
+function install_hurl() {
     mkdir tmp
     cd tmp
     git clone https://github.com/Orange-OpenSource/hurl

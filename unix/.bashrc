@@ -23,6 +23,10 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
 
 #shopt -s direxpand
 
+alias cat=$(which bat)
+alias find=$(which fd)
+alias hat=$(which hexyl)
+
 alias tfi="terraform init"
 alias tfv="terraform validate"
 alias tfa="terraform apply -auto-approve"
