@@ -27,6 +27,8 @@ alias cat=$(which bat)
 alias find=$(which fd)
 alias hat=$(which hexyl)
 alias grep=$(which rg)
+alias ls=$(which exa)
+alias ps=$(which procs)
 
 alias tfi="terraform init"
 alias tfv="terraform validate"

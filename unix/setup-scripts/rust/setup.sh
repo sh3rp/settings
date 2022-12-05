@@ -9,6 +9,9 @@ function install_rust() {
     install_fd
     install_hexyl
     install_hurl
+    install_ripgrep
+    install_exa
+	  install_procs
 }
 
 function install_bat() {
@@ -51,6 +54,37 @@ function install_hurl() {
     cd hurl 
     cargo build 
     sudo cp target/debug/hurl /usr/local/bin
+    cd ../..
+    rm -rf tmp
+}
+
+function install_ripgrep() {
+    mkdir tmp
+    cd tmp
+    git clone https://github.com/BurntSushi/ripgrep
+    cd ripgrep
+    cargo install --path . 
+    sudo cp target/release/rg /usr/bin
+    cd ../..
+    rm -rf tmp
+}
+function install_exa() {
+    mkdir tmp
+    cd tmp
+    git clone https://github.com/ogham/exa
+    cd exa
+    cargo install --path . 
+    sudo cp target/release/exa /usr/bin
+    cd ../..
+    rm -rf tmp
+}
+function install_procs() {
+    mkdir tmp
+    cd tmp
+    git clone https://github.com/dalance/procs
+    cd procs
+    cargo install --path . 
+    sudo cp target/release/procs /usr/bin
     cd ../..
     rm -rf tmp
 }
