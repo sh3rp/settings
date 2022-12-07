@@ -64,7 +64,7 @@ function install_ripgrep() {
     git clone https://github.com/BurntSushi/ripgrep
     cd ripgrep
     cargo install --path . 
-    sudo cp target/release/rg /usr/bin
+    sudo cp target/release/rg /usr/local/bin
     cd ../..
     rm -rf tmp
 }
@@ -74,7 +74,7 @@ function install_exa() {
     git clone https://github.com/ogham/exa
     cd exa
     cargo install --path . 
-    sudo cp target/release/exa /usr/bin
+    sudo cp target/release/exa /usr/local/bin
     cd ../..
     rm -rf tmp
 }
@@ -84,7 +84,7 @@ function install_procs() {
     git clone https://github.com/dalance/procs
     cd procs
     cargo install --path . 
-    sudo cp target/release/procs /usr/bin
+    sudo cp target/release/procs /usr/local/bin
     cd ../..
     rm -rf tmp
 }
