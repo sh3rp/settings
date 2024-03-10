@@ -21,6 +21,9 @@ export ETCDCTL_API=3
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
 
+export GOVERSION=$(cat $HOME/.gover)
+export GOVERSION_DEFAULT="1.22.1"
+
 #shopt -s direxpand
 
 alias cat=$(which bat)
@@ -29,6 +32,8 @@ alias hat=$(which hexyl)
 alias grep=$(which rg)
 alias ls=$(which exa)
 alias ps=$(which procs)
+
+alias go="docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app golang:${GOVERSION} go"
 
 alias tfi="terraform init"
 alias tfv="terraform validate"
