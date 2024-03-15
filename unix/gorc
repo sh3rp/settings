@@ -1,10 +1,10 @@
 function go() {
-	GOVERSION=$(cat $HOME/.gover)
-
-	if [ -z "${GOVERSION}" ]; then
+    if [ ! -f "$HOME/.gover" ]; then
 		echo "You must set your desired Go version by putting it in $HOME/.gover."
-		exit 1
+		return
 	fi
+
+	GOVERSION=$(cat $HOME/.gover)
 
     if [ ! -d "/usr/local/go${GOVERSION}" ]; then
         usego ${GOVERSION}
