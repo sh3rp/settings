@@ -1,48 +1,54 @@
+export BASEDIR="$HOME/.go"
+
+function getgodir() {
+   GOVER=$(cat $HOME/.gover)
+   echo $BASEDIR/$GOVER
+}
+
 function go() {
+
     if [ ! -f "$HOME/.gover" ]; then
-		echo "You must set your desired Go version by putting it in $HOME/.gover."
-		return
-	fi
-
-	GOVERSION=$(cat $HOME/.gover)
-
-    if [ ! -d "/usr/local/go${GOVERSION}" ]; then
-        usego ${GOVERSION}
-	fi
-
-    if [ "$(readlink -- "$/usr/local/bin/gox")" != /usr/local/go${GOVERSION}/bin/go ]; then
-        sudo rm /usr/local/bin/gox
-        sudo ln -s /usr/local/go${GOVERSION}/bin/go /usr/local/bin/gox
+	   echo "You must set your desired Go version by putting it in $HOME/.gover."
+	   return
     fi
 
-	/usr/local/bin/gox $@
+    GOROOT=$(getgodir)/go
+
+    GOVER=$(cat $HOME/.gover)
+    GODIR=$(getgodir)
+
+    if [ ! -d "$GODIR" ]; then
+        usego ${GOVER}
+    fi
+
+    if [ ! $(readlink $BASEDIR/go) = $GODIR/go/bin/go ]; then
+        rm $BASEDIR/go
+        ln -s $GODIR/go/bin/go $BASEDIR/go
+    fi
+
+    $BASEDIR/go $@
 }	
 
 function usego() {
-    if [ -d "/usr/local/go" ]; then
-        sudo rm /usr/local/go
+    GODIR=$(getgodir)
+
+    if [ -d "$GODIR" ]; then
+        rm -rf $GODIR
     fi
 
     VERSION=$1
     OS=$(uname -s | tr A-Z a-z)
     ARCH=$(uname -m)
 
-    if [ ! -d "/usr/local/go${VERSION}" ]; then
+    if [ ! -d "$GODIR" ]; then
         wget -O /tmp/go.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz
+        mkdir -p $(getgodir)
         CWD=$(pwd)
-        cd /usr/local
-        sudo tar xvfz /tmp/go.tar.gz
-        sudo mv /usr/local/go /usr/local/go${VERSION}
+        cd $(getgodir)
+        tar xvfz /tmp/go.tar.gz
         rm /tmp/go.tar.gz
         cd $CWD
     fi
 
-    sudo ln -s /usr/local/go${VERSION} /usr/local/go
-
-    if [ -f "/usr/local/[bin/go" ]; then
-        sudo rm -f /usr/local/bin/go
-    fi
-
-    sudo rm /usr/local/bin/gox
-    sudo ln -s /usr/local/go${VERSION}/bin/go /usr/local/bin/gox
+    ln -s $GODIR/go/bin/go $BASEDIR/go
 }
