@@ -6,7 +6,7 @@ then
     source $HOME/.credentials
 fi
 
-source go.env
+source $HOME/settings/unix/go.env
 
 export PATH=$PATH:$HOME/settings/unix/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:.:$HOME/.cargo/bin
 export BAT_THEME="Visual Studio Dark+"
