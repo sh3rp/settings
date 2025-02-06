@@ -1,0 +1,7 @@
+custom-shader = /User/shep/.config/ghostty/terminal.glsl
+background = 202020
+background-opacity = .86
+foreground = 05fe05
+font-family = Consolas
+font-size = 16
+theme = Everblush
