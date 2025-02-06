@@ -9,10 +9,9 @@ then
     source $HOME/.credentials
 fi
 
-export GOPATH=$HOME/go
-#export GOBIN=$GOPATH/bin
-#export GOROOT=/usr/local/go
-export PATH=$PATH:$HOME/settings/unix/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:$GOROOT/bin:.:$HOME/.cargo/bin
+source go.env
+
+export PATH=$PATH:$HOME/settings/unix/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:.:$HOME/.cargo/bin
 export BAT_THEME="Visual Studio Dark+"
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/databox.credentials.json"
