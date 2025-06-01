@@ -19,7 +19,7 @@ alias cat=$(which bat)
 alias find=$(which fd)
 alias hat=$(which hexyl)
 alias grep=$(which rg)
-alias ls=$(which eza)
+#alias ls=$(which eza)
 alias ps=$(which procs)
 
 
